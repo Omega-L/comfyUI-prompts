@@ -1,0 +1,14 @@
+{
+  "comfyUI-prompt": {
+    "title": "ComfyUI Prompt"
+  },
+  "settingsCategories": {
+    "Prompt": "Prompt"
+  },
+  "settings": {
+    "ComfyUI_Prompt_Setting": {
+      "name": "ComfyUI Prompt",
+      "tooltip": ""
+    }
+  }
+}

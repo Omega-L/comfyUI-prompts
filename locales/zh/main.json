@@ -1,0 +1,14 @@
+{
+  "vue-basic": {
+    "title": "ComfyUI提示词节点"
+  },
+  "settingsCategories": {
+    "Prompt": "提示词节点"
+  },
+  "settings": {
+    "ComfyUI_Prompt_Setting": {
+      "name": "ComfyUI提示词节点",
+      "tooltip": ""
+    }
+  }
+}
