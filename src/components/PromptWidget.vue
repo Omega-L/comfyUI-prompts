@@ -2,14 +2,7 @@
   <div class="prompt-container">
     <h1>{{ t("comfyUI-prompt.title") }}</h1>
     <div>
-      <MultiSelect
-        v-model="selectedCities"
-        :options="cities"
-        optionLabel="name"
-        filter
-        placeholder="Select Cities"
-        class="w-full"
-      />
+      <Actor></Actor>
     </div>
   </div>
 </template>
@@ -18,7 +11,7 @@
 import { onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { ComfyApp } from "@comfyorg/comfyui-frontend-types";
-import MultiSelect from "@/volt/MultiSelect.vue";
+import Actor from "./Actor.vue";
 
 declare global {
   interface Window {
@@ -38,13 +31,6 @@ const props = defineProps<{
 const { t } = useI18n();
 
 const selectedCities = ref();
-const cities = ref([
-  { name: "New York", code: "NY" },
-  { name: "Rome", code: "RM" },
-  { name: "London", code: "LDN" },
-  { name: "Istanbul", code: "IST" },
-  { name: "Paris", code: "PRS" },
-]);
 
 onMounted(() => {
   props.widget.serializeValue = async (node, index) => {
