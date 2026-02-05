@@ -15513,7 +15513,7 @@ var script$7 = {
   }
 };
 var _hoisted_1$5 = ["data-p"];
-var _hoisted_2$2 = ["data-p"];
+var _hoisted_2$3 = ["data-p"];
 function render$5(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_SpinnerIcon = resolveComponent("SpinnerIcon");
   var _component_Badge = resolveComponent("Badge");
@@ -15551,7 +15551,7 @@ function render$5(_ctx, _cache, $props, $setup, $data, $options) {
           "class": _ctx.cx("label")
         }, _ctx.ptm("label"), {
           "data-p": $options.dataLabelP
-        }), toDisplayString$1(_ctx.label), 17, _hoisted_2$2)) : createCommentVNode("", true), _ctx.badge ? (openBlock(), createBlock(_component_Badge, {
+        }), toDisplayString$1(_ctx.label), 17, _hoisted_2$3)) : createCommentVNode("", true), _ctx.badge ? (openBlock(), createBlock(_component_Badge, {
           key: 3,
           value: _ctx.badge,
           "class": normalizeClass(_ctx.badgeClass),
@@ -18823,7 +18823,7 @@ var script$4 = {
   }
 };
 var _hoisted_1$4 = ["data-p"];
-var _hoisted_2$1 = ["data-p"];
+var _hoisted_2$2 = ["data-p"];
 var _hoisted_3 = ["id"];
 var _hoisted_4 = ["id", "aria-labelledby"];
 function render$2(_ctx, _cache, $props, $setup, $data, $options) {
@@ -18883,7 +18883,7 @@ function render$2(_ctx, _cache, $props, $setup, $data, $options) {
       }),
       _: 3
     }, 16, ["id", "class", "aria-label", "aria-controls", "aria-expanded", "unstyled", "pt"])];
-  }) : createCommentVNode("", true)], 16)], 16, _hoisted_2$1), createVNode(Transition, mergeProps({
+  }) : createCommentVNode("", true)], 16)], 16, _hoisted_2$2), createVNode(Transition, mergeProps({
     name: "p-collapsible"
   }, _ctx.ptm("transition")), {
     "default": withCtx(function() {
@@ -19246,7 +19246,7 @@ var script$2 = {
   }
 };
 var _hoisted_1$3 = ["tabindex", "disabled", "aria-pressed", "aria-label", "aria-labelledby", "data-p-checked", "data-p-disabled", "data-p"];
-var _hoisted_2 = ["data-p"];
+var _hoisted_2$1 = ["data-p"];
 function render$1(_ctx, _cache, $props, $setup, $data, $options) {
   var _directive_ripple = resolveDirective("ripple");
   return withDirectives((openBlock(), createElementBlock("button", mergeProps({
@@ -19283,7 +19283,7 @@ function render$1(_ctx, _cache, $props, $setup, $data, $options) {
     }), createBaseVNode("span", mergeProps({
       "class": _ctx.cx("label")
     }, $options.getPTOptions("label")), toDisplayString$1($options.label), 17)];
-  })], 16, _hoisted_2)], 16, _hoisted_1$3)), [[_directive_ripple]]);
+  })], 16, _hoisted_2$1)], 16, _hoisted_1$3)), [[_directive_ripple]]);
 }
 script$2.render = render$1;
 var style = "\n    .p-selectbutton {\n        display: inline-flex;\n        user-select: none;\n        vertical-align: bottom;\n        outline-color: transparent;\n        border-radius: dt('selectbutton.border.radius');\n    }\n\n    .p-selectbutton .p-togglebutton {\n        border-radius: 0;\n        border-width: 1px 1px 1px 0;\n    }\n\n    .p-selectbutton .p-togglebutton:focus-visible {\n        position: relative;\n        z-index: 1;\n    }\n\n    .p-selectbutton .p-togglebutton:first-child {\n        border-inline-start-width: 1px;\n        border-start-start-radius: dt('selectbutton.border.radius');\n        border-end-start-radius: dt('selectbutton.border.radius');\n    }\n\n    .p-selectbutton .p-togglebutton:last-child {\n        border-start-end-radius: dt('selectbutton.border.radius');\n        border-end-end-radius: dt('selectbutton.border.radius');\n    }\n\n    .p-selectbutton.p-invalid {\n        outline: 1px solid dt('selectbutton.invalid.border.color');\n        outline-offset: 0;\n    }\n\n    .p-selectbutton-fluid {\n        width: 100%;\n    }\n    \n    .p-selectbutton-fluid .p-togglebutton {\n        flex: 1 1 0;\n    }\n";
@@ -19535,7 +19535,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   __name: "SelectButton",
   setup(__props) {
     const theme = /* @__PURE__ */ ref({
-      root: `inline-flex select-none w-full rounded-none p-invalid:outline p-invalid:outline-offset-0 p-invalid:outline-red-400 dark:p-invalid:outline-red-300`,
+      root: `inline-flex select-none rounded-none p-invalid:outline p-invalid:outline-offset-0 p-invalid:outline-red-400 dark:p-invalid:outline-red-300`,
       pcToggleButton: {
         root: `inline-flex items-center justify-center overflow-hidden relative cursor-pointer select-none grow
             border border-surface-100 dark:border-surface-950
@@ -19552,7 +19552,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
             transition-colors duration-200
             p-1 p-small:text-sm p-large:text-lg
         `,
-        content: `relative flex-auto inline-flex items-center justify-between gap-1 py-0.25 px-1 text-[10px] whitespace-nowrap
+        content: `relative flex-auto inline-flex items-center justify-center gap-1 py-0.25 px-1 text-[10px] whitespace-nowrap
             rounded-md transition-colors duration-200
             p-checked:bg-surface-0 dark:p-checked:bg-surface-800 p-checked:shadow-[0px_1px_2px_0px_rgba(0,0,0,0.02),0px_1px_2px_0px_rgba(0,0,0,0.04)]`,
         icon: ``,
@@ -19580,6 +19580,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   }
 });
 const _hoisted_1$1 = { class: "" };
+const _hoisted_2 = { class: "w-full bg-surface-100 dark:bg-surface-950 overflow-auto" };
 const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   __name: "Actor",
   setup(__props) {
@@ -19594,12 +19595,14 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
             ], -1)
           ])]),
           footer: withCtx(() => [
-            createVNode(_sfc_main$2, {
-              modelValue: value.value,
-              "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => value.value = $event),
-              options: options.value,
-              size: "small"
-            }, null, 8, ["modelValue", "options"])
+            createBaseVNode("div", _hoisted_2, [
+              createVNode(_sfc_main$2, {
+                modelValue: value.value,
+                "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => value.value = $event),
+                options: options.value,
+                size: "small"
+              }, null, 8, ["modelValue", "options"])
+            ])
           ]),
           icons: withCtx(() => [
             createVNode(_sfc_main$4, {
