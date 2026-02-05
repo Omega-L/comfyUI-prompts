@@ -18,8 +18,9 @@ export default defineConfig({
         },
         rollupOptions: {
             external: [
-                '../../../scripts/app.js',
-                '../../../scripts/ui.js'
+                '../../scripts/app.js',
+                '../../scripts/utils.js',
+                '../../scripts/ui.js'
             ],
             output: {
                 dir: 'web',

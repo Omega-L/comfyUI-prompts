@@ -1,11 +1,16 @@
 // @ts-ignore - ComfyUI external module
-import { app } from '../../../scripts/app.js'
+import { app } from '../../scripts/app.js'
+// @ts-ignore - ComfyUI external module
+import { addStylesheet } from "../../scripts/utils.js";
+
 import { createApp, type App as VueApp } from 'vue'
 import { createI18n } from 'vue-i18n'
 import PrimeVue from 'primevue/config'
 import PromptWidget from '@/components/PromptWidget.vue'
 
-import { addStylesheet, getUrl } from './util/index.ts'
+
+// import { addStylesheet, getUrl } from './util/index.ts'
+
 import en from '../locales/en/main.json'
 import zh from '../locales/zh/main.json'
 import '@/assets/main.css'
@@ -79,9 +84,11 @@ app.registerExtension({
       experimental: true
     }
   ],
-  setup() {
+  async setup() {
     // 注册样式
-    addStylesheet(getUrl("css/main.css", import.meta.url));
+    // addStylesheet(getUrl("css/main.css", import.meta.url));
+    await addStylesheet("css/main.css",import.meta.url);
+
   },
   getCustomWidgets() {
     return {

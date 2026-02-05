@@ -1,5 +1,5 @@
-import { app } from "../../../scripts/app.js";
-import { $el } from "../../scripts/ui.js";
+import { app } from "../../scripts/app.js";
+import { addStylesheet } from "../../scripts/utils.js";
 /**
 * @vue/shared v3.5.27
 * (c) 2018-present Yuxi (Evan) You and Vue contributors
@@ -18824,7 +18824,7 @@ var script$4 = {
 };
 var _hoisted_1$4 = ["data-p"];
 var _hoisted_2$1 = ["data-p"];
-var _hoisted_3$1 = ["id"];
+var _hoisted_3 = ["id"];
 var _hoisted_4 = ["id", "aria-labelledby"];
 function render$2(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Button = resolveComponent("Button");
@@ -18843,7 +18843,7 @@ function render$2(_ctx, _cache, $props, $setup, $data, $options) {
       key: 0,
       id: _ctx.$id + "_header",
       "class": _ctx.cx("title")
-    }, _ctx.ptm("title")), toDisplayString$1(_ctx.header), 17, _hoisted_3$1)) : createCommentVNode("", true)];
+    }, _ctx.ptm("title")), toDisplayString$1(_ctx.header), 17, _hoisted_3)) : createCommentVNode("", true)];
   }), createBaseVNode("div", mergeProps({
     "class": _ctx.cx("headerActions")
   }, _ctx.ptm("headerActions")), [renderSlot(_ctx.$slots, "icons"), _ctx.toggleable ? renderSlot(_ctx.$slots, "togglebutton", {
@@ -19665,24 +19665,6 @@ const _export_sfc = (sfc, props) => {
   return target;
 };
 const PromptWidget = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-667a0ebe"]]);
-function addStylesheet(url) {
-  if (url.endsWith(".js")) {
-    url = url.substr(0, url.length - 2) + "css";
-  }
-  $el("link", {
-    parent: document.head,
-    rel: "stylesheet",
-    type: "text/css",
-    href: url.startsWith("http") ? url : getUrl(url)
-  });
-}
-function getUrl(path, baseUrl) {
-  if (baseUrl) {
-    return new URL(path, baseUrl).toString();
-  } else {
-    return new URL("../" + path, import.meta.url).toString();
-  }
-}
 const settingsCategories$1 = { "Prompt": "Prompt" };
 const settings$1 = { "ComfyUI_Prompt_Setting": { "name": "ComfyUI Prompt", "tooltip": "" } };
 const en = {
@@ -19756,8 +19738,8 @@ app.registerExtension({
       experimental: true
     }
   ],
-  setup() {
-    addStylesheet(getUrl("css/main.css", import.meta.url));
+  async setup() {
+    await addStylesheet("css/main.css", import.meta.url);
   },
   getCustomWidgets() {
     return {
