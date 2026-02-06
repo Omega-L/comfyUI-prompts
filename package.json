@@ -5,6 +5,7 @@
   "dependencies": {
     "@primevue/icons": "^4.5.4",
     "@tailwindcss/vite": "^4.1.18",
+    "@vueuse/core": "^14.2.0",
     "primevue": "^4.2.5",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.18",
