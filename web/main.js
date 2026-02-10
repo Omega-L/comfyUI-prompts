@@ -23647,14 +23647,28 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
           { name: "角色5", code: "FR" },
           { name: "角色6", code: "DE" }
         ]
+      },
+      眼睛: {
+        颜色: [
+          { name: "眼睛1", code: "AU" },
+          { name: "眼睛2", code: "BR" },
+          { name: "眼睛3", code: "CN" },
+          { name: "眼睛4", code: "EG" },
+          { name: "眼睛5", code: "FR" },
+          { name: "眼睛6", code: "DE" }
+        ]
       }
     };
-    const selectedValue = /* @__PURE__ */ ref(null);
-    const listBox = computed(() => {
-      return obj[subModule.value] ?? {
-        [subModule.value]: [{ name: "请选择", code: "" }]
+    const selectedMap = /* @__PURE__ */ ref({});
+    watch(() => selectedMap.value, () => {
+      console.log(selectedMap.value);
+    }, { deep: true });
+    const listBox = /* @__PURE__ */ ref(null);
+    function setListBox() {
+      listBox.value = obj[subModule.value] ?? {
+        [subModule.value]: null
       };
-    });
+    }
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", null, [
         createVNode(_sfc_main$7, { toggleable: "" }, {
@@ -23684,30 +23698,32 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
             })
           ]),
           default: withCtx(() => [
-            createBaseVNode("div", _hoisted_4, toDisplayString$1(selectedValue.value), 1),
+            createBaseVNode("div", _hoisted_4, toDisplayString$1(selectedMap.value), 1),
             createVNode(_sfc_main$5, {
               ref_key: "op",
               ref: op,
               onHide,
-              onClick: _cache[2] || (_cache[2] = withModifiers(() => {
+              onShow: setListBox,
+              onClick: _cache[1] || (_cache[1] = withModifiers(() => {
               }, ["stop"]))
             }, {
               default: withCtx(() => [
-                createBaseVNode("div", {
+                listBox.value ? (openBlock(), createElementBlock("div", {
+                  key: 0,
                   ref_key: "listRef",
                   ref: listRef2,
                   class: "flex gap-4 text-[10px]"
                 }, [
                   (openBlock(true), createElementBlock(Fragment, null, renderList(listBox.value, (value, key) => {
                     return openBlock(), createBlock(_sfc_main$3, {
-                      modelValue: selectedValue.value,
-                      "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => selectedValue.value = $event),
+                      modelValue: selectedMap.value[key],
+                      "onUpdate:modelValue": ($event) => selectedMap.value[key] = $event,
                       options: value,
                       "type-name": key,
                       key
-                    }, null, 8, ["modelValue", "options", "type-name"]);
+                    }, null, 8, ["modelValue", "onUpdate:modelValue", "options", "type-name"]);
                   }), 128))
-                ], 512)
+                ], 512)) : createCommentVNode("", true)
               ]),
               _: 1
             }, 512)

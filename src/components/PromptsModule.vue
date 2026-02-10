@@ -26,14 +26,18 @@
         />
       </template>
       <div class="text-[10px] text-comfy-input">
-        {{ selectedValue }}
+        {{ selectedMap }}
       </div>
       <!-- 弹窗 -->
-      <Popover ref="op" @hide="onHide" @click.stop>
-        <div ref="listRef" class="flex gap-4 text-[10px]">
+      <Popover ref="op" @hide="onHide" @show="setListBox" @click.stop>
+        <div
+          ref="listRef"
+          v-if="listBox"
+          class="flex gap-4 text-[10px]"
+        >
           <PromptListBox
             v-for="(value, key) in listBox"
-            v-model="selectedValue"
+            v-model="selectedMap[key]"
             :options="value"
             :type-name="key"
             :key="key"
@@ -51,7 +55,7 @@ import SelectButton from "@/volt/SelectButton.vue";
 import Popover from "@/volt/Popover.vue";
 import PromptListBox from "./PromptListBox.vue";
 
-import { computed, ref } from "vue";
+import { ref,watch } from "vue";
 import { SelectButtonChangeEvent } from "primevue";
 import { onClickOutside } from "@vueuse/core";
 
@@ -106,15 +110,29 @@ const obj = {
       { name: "角色6", code: "DE" },
     ],
   },
+  眼睛: {
+    颜色: [
+      { name: "眼睛1", code: "AU" },
+      { name: "眼睛2", code: "BR" },
+      { name: "眼睛3", code: "CN" },
+      { name: "眼睛4", code: "EG" },
+      { name: "眼睛5", code: "FR" },
+      { name: "眼睛6", code: "DE" },
+    ]
+  }
 };
 
-const selectedValue = ref(null);
+const selectedMap = ref<Record<string, string>>({});
 
-const listBox = computed(() => {
-  return (
-    obj[subModule.value as keyof typeof obj] ?? {
-      [subModule.value]: [{ name: "请选择", code: "" }],
-    }
-  );
-});
+watch(() => selectedMap.value,()=>{
+  console.log(selectedMap.value);
+  
+},{deep: true})
+
+const listBox = ref<Record<string, any[]> | null>(null);
+function setListBox() {
+  listBox.value = obj[subModule.value as keyof typeof obj] ?? {
+    [subModule.value]: null,
+  };
+}
 </script>
